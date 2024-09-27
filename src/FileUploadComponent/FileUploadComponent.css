@@ -1,0 +1,83 @@
+.upload-container {
+    border: 2px dashed #4a90e2;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: background-color 0.3s;
+    margin: 20px auto;
+    max-width: 500px;
+    background-color: #f8f9fa;
+}
+
+.upload-container:hover {
+    background-color: #e9f1ff; /* Light blue on hover */
+}
+
+.upload-input {
+    display: none; /* Hide the default file input */
+}
+
+.upload-label {
+    display: inline-block; /* Allows width and height to be set */
+    width: 65%; 
+    height: 40px; /* Common height */
+    text-align: center; /* Center text */
+    line-height: 40px; /* Center text vertically */
+    border: 1px solid #ccc; /* Optional border */
+    border-radius: 5px; /* Optional rounded corners */
+    background-color: #f0f0f0; /* Optional background color */
+    font-size: medium;
+}
+
+.upload-button {
+    display: inline-block; /* Allows width and height to be set */
+    width: 30%; 
+    height: 40px; /* Common height */
+    text-align: center; 
+    font-size: medium;
+    line-height: 40px; /* Center text vertically */
+    border: 1px solid #ccc; /* Optional border */
+    border-radius: 5px; /* Optional rounded corners */
+    background-color: #349b6b; /* Blue background for the button */
+    color: white; /* White text color for the button */
+    cursor: pointer; /* Change cursor to pointer for buttons */
+}
+
+.upload-button:hover {
+    background-color: #2f855d; /* Darker blue on hover */
+}
+
+.selected-files {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.selected-files ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.selected-files li {
+    background: #e2e6ea; /* Light gray background */
+    padding: 2px;
+    border-radius: 5px;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    min-width: 100%;
+    justify-content: space-between;
+}
+
+.delete-button {
+    background-color: transparent;
+    font-size: 15px;
+    color: red;
+    border: none;
+}
+
+.delete-button:hover {
+    text-decoration: underline;
+}
