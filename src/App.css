@@ -2,6 +2,7 @@
   text-align: center;
   background-color: white;
   min-height: 100vh;
+  background-color: rgba(149, 191, 233, 0.295);
 }
 
 .App-logo {
@@ -23,8 +24,9 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 5vmin);
+  font-family: sans-serif;
   color: white;
-  background-color: rgb(28, 13, 240);
+  background-color: rgb(4, 55, 242);
 }
 
 .App-link {
