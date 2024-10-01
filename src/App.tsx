@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link, useNavigate } from 'react-router-dom';
 import './App.css'
 import FileUploadComponent from './FileUploadComponent/FileUploadComponent';
+import LoginPage from './LoginPage/LoginPage';
+import SignUpPage from './LoginPage/SignUpPage';
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -23,7 +25,9 @@ const App: React.FC = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/login" element={<LoginPage/>}/>
+        <Route path="/signup" element={<SignUpPage/>}/>
       </Routes>
     </Router>
   );
