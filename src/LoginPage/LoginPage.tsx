@@ -1,21 +1,28 @@
 import React, { useState } from 'react';
 import { login } from '../services/loginServices';
+import { useNavigate } from 'react-router-dom';
 import './LoginPage.css'
 
 const LoginPage: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       const loginInfo = await login(username, password);
-      // do stuff with login info
+      localStorage.setItem('accessToken', loginInfo.access);
+      localStorage.setItem('refreshToken', loginInfo.refresh);
+      navigate('/');
+  
     }
     catch (error) {
       console.log(error);
       setErrorMessage("Error logging in, try again.");
+      setUsername("");
+      setPassword("");
     }
   };
 
@@ -24,7 +31,7 @@ const LoginPage: React.FC = () => {
       <h2>Login</h2>
       <form onSubmit={handleLogin}>
         <div>
-          <label htmlFor="username">Usrename:</label>
+          <label htmlFor="username">Username:</label>
           <input
             type="text"
             id="username"

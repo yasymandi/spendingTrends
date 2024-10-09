@@ -9,7 +9,8 @@ const FileUploadComponent: React.FC = () => {
   });
 
   useEffect(() => {
-    setSelectedFiles([]); 
+    setSelectedFiles([]);
+    setUploadStatus(""); 
   }, []); // Empty dependency array means this runs only on mount
 
   useEffect(() => {
@@ -45,13 +46,15 @@ const FileUploadComponent: React.FC = () => {
     });
   }
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
     try {
       const response = await uploadFiles(selectedFiles);
       setUploadStatus('Files uploaded successfully');
     } catch (error) {
       setUploadStatus('Error uploading files, try again');
     }
+    setSelectedFiles([]);
   };
 
   return (

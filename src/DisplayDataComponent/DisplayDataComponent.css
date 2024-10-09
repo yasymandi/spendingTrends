@@ -1,0 +1,33 @@
+.generated-data {
+    display: flex;
+    margin-top: 15px;
+  }
+  
+  .user-files {
+    margin-right: 5px;
+  }
+  
+  .graphs {
+  }
+  
+  .resizer {
+    width: 5px; 
+    background-color: #61dafb;
+    cursor: col-resize;
+  }
+
+  ul {
+    overflow: auto;
+  }
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+  }
+
+  .uploads-delete-button {
+    margin-left: auto;
+    font-size: 10px;
+  }

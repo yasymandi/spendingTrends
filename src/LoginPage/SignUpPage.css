@@ -2,7 +2,7 @@
     max-width: 400px;
     margin: 0 auto;
     padding: 2em;
-    border: 10px solid #ccc;
+    border: 10px solid #33c3eb;
     margin-top: 10%;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -24,6 +24,8 @@
   
   .signup-container label {
     margin-bottom: 0.5em;
+    width: 20%; /* Set your desired width here */
+    display: inline-block;
   }
   
   .signup-container input {
@@ -31,6 +33,8 @@
     margin-bottom: 1em;
     border: 1px solid #ccc;
     border-radius: 5px;
+    width: 70%; /* Set your desired width here */
+    display: inline-block;
   }
   
   .signup-container button {

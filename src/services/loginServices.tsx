@@ -11,9 +11,6 @@ export const login = async (username: string, password: string): Promise<any> =>
         throw new Error(errorData.detail || 'Login failed'); // Sends error info to the server
     }
     const data = await response.json();
-    localStorage.setItem('accessToken', data.access);
-    localStorage.setItem('refreshToken', data.refresh);
-
     return data; // Return the response data (tokens)
 };
 
