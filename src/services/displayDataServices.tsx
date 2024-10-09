@@ -41,3 +41,18 @@ export const deleteUploadedFile = async (file: string): Promise<any> => {
         console.error('Error deleting uploaded file:', error);
     }
 };
+
+export const processUploadedFiles = async (): Promise<any> => {
+    try {
+        const response = await fetch(`${BASE_URL}/api/process-user-files/`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+            }
+        });
+        return await response.json();
+    }
+    catch (error) {
+        console.error("Error parsing through uploaded files");
+    }
+};

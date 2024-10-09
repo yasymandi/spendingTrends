@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { getUploadedFiles, deleteUploadedFile } from '../services/displayDataServices';
+import { getUploadedFiles, deleteUploadedFile, processUploadedFiles } from '../services/displayDataServices';
 import './DisplayDataComponent.css'
 import FileUploadComponent from '../FileUploadComponent/FileUploadComponent';
 
 const DisplayDataComponent: React.FC = () => {
     const [leftWidth, setLeftWidth] = useState(50); // Percentage width 
     const [uploadedFiles, setUploadedFiles] = useState<any[]>([]);
+    const [generatingDataStatus, setGeneratingDataStatus] = useState("");
     useEffect(() => {
         console.log("useEffect running")
         getUploadedFiles().then(files => {
@@ -47,6 +48,17 @@ const DisplayDataComponent: React.FC = () => {
         });
     };
 
+    const handleGenerateGraphs = async () => {
+        setGeneratingDataStatus("Processing...");
+        try {
+            const response = await processUploadedFiles();
+            setGeneratingDataStatus("");
+        }
+        catch (error) {
+            setGeneratingDataStatus("Failed to generate graph data, try again.");
+        }
+    }
+
     return (
         <div className="generated-data">
           <div className='user-files' style={{ width: `${leftWidth}%` }}>
@@ -64,6 +76,8 @@ const DisplayDataComponent: React.FC = () => {
           <div className="resizer" onMouseDown={handleMouseDown}></div>
           <div className='graphs' style={{ width: `${100 - leftWidth}%` }}>
           <h3>Graphs</h3>
+            <button onClick={handleGenerateGraphs}>Generate Graphs</button>
+            <p>{generatingDataStatus}</p>
           </div>
         </div>
     )
