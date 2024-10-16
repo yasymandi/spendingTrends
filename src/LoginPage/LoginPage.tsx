@@ -15,6 +15,7 @@ const LoginPage: React.FC = () => {
       const loginInfo = await login(username, password);
       localStorage.setItem('accessToken', loginInfo.access);
       localStorage.setItem('refreshToken', loginInfo.refresh);
+      localStorage.setItem('user', username);
       navigate('/');
   
     }

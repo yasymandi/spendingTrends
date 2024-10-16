@@ -2,7 +2,8 @@
     max-width: 400px;
     margin: 0 auto;
     padding: 2em;
-    border: 10px solid #33c3eb;
+    /* border: 10px solid #33c3eb; */
+    background-color: rgb(0, 106, 255);
     margin-top: 10%;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -36,7 +37,7 @@
   
   .login-container button {
     padding: 0.5em;
-    background-color: #007bff;
+    background-color: #44aeef;
     color: white;
     border: none;
     border-radius: 5px;

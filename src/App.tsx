@@ -8,7 +8,7 @@ import DisplayDataComponent from './DisplayDataComponent/DisplayDataComponent';
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
-
+  const user = localStorage.getItem('user')
   const logout = async () => {
     localStorage.clear();
     navigate('/login');
@@ -16,12 +16,11 @@ const Home: React.FC = () => {
   return (
       <div className="App">
         <header className="App-header">
-          <h1>Spending Trends
-          <button onClick={logout}>Logout</button>
-          </h1>
+          <h1>Spending Trends </h1>
+          <button className='logout' onClick={logout}>Logout</button>
         </header>
         <div>
-          <h2>Ready to start analyzing your spending?</h2>
+          <h2>Welcome {user}, ready to start analyzing your spending?</h2>
           <p>Upload the bank statements you'd like insights on</p>
         </div>
         <DisplayDataComponent/>

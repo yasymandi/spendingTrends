@@ -42,15 +42,21 @@ export const deleteUploadedFile = async (file: string): Promise<any> => {
     }
 };
 
-export const processUploadedFiles = async (): Promise<any> => {
+export const processUploadedFiles = async (files: string[]): Promise<any> => {
     try {
         const response = await fetch(`${BASE_URL}/api/process-user-files/`, {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${token}`,
-            }
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ files })
         });
-        return await response.json();
+        if (!response.ok){
+            throw new Error('Failed to get the dictionary data for categories and amounts');
+        }
+        const data = await response.json()
+        return data['data']
     }
     catch (error) {
         console.error("Error parsing through uploaded files");
